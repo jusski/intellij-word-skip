@@ -6,13 +6,18 @@
 
     <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.jusski.intellijwordskip.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.jusski.intellijwordskip.services.MyProjectService"/>
-    </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.jusski.intellijwordskip.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+    <actions>
+        <action id="Carret.MoveToLeft"
+                class="jusski.MoveLeftToWordFirstCharAction"
+                text="Move Caret To Previous Java Word"
+                description="Move caret left to first char of word.">
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt G"/>
+        </action>
+        <action id="Carret.MoveToRight"
+                class="jusski.MoveRightAfterWordLastCharAction"
+                text="Move Caret To Next Java Word"
+                description="Move caret right to one after last char of word.">
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt H"/>
+        </action>
+    </actions>
 </idea-plugin>
